@@ -1,0 +1,57 @@
+import java.util.HashMap;
+
+public class Main {
+
+    static char getMaxOccuringChar(String s) {
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        // Frequency Count
+        for (int i = 0; i < s.length(); i++) {
+
+            char ch = s.charAt(i);
+
+            if (map.containsKey(ch)) {
+                int freq = map.get(ch);
+                map.put(ch, freq + 1);
+            } else {
+                map.put(ch, 1);
+            }
+        }
+
+        // Maximum Frequency
+        int maxFreq = 0;
+
+        for (char ch : map.keySet()) {
+
+            int freq = map.get(ch);
+
+            if (freq > maxFreq) {
+                maxFreq = freq;
+            }
+        }
+
+        // Lexicographically Smallest Character
+        char ans = 'z';
+
+        for (char ch : map.keySet()) {
+
+            int freq = map.get(ch);
+
+            if (freq == maxFreq && ch <= ans) {
+                ans = ch;
+            }
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "testsample";
+
+        char result = getMaxOccuringChar(s);
+
+        System.out.println(result);
+    }
+}
