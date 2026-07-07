@@ -1,0 +1,266 @@
+Amit, agar tum **HashMap 0 se** seekhna chahte ho, to ye order follow karo. Har program ek naya method sikhata hai.
+
+---
+
+# 1. HashMap Banana
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        System.out.println(map);
+    }
+}
+```
+
+**Output**
+
+```text
+{}
+```
+
+---
+
+# 2. Data Add Karna (`put()`)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+        map.put(103, "Rohan");
+
+        System.out.println(map);
+    }
+}
+```
+
+**Output** (order change ho sakta hai)
+
+```text
+{101=Amit, 102=Rahul, 103=Rohan}
+```
+
+---
+
+# 3. Value Nikalna (`get()`)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+
+        System.out.println(map.get(101));
+    }
+}
+```
+
+**Output**
+
+```text
+Amit
+```
+
+---
+
+# 4. Key Check Karna (`containsKey()`)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+
+        System.out.println(map.containsKey(101));
+        System.out.println(map.containsKey(105));
+    }
+}
+```
+
+**Output**
+
+```text
+true
+false
+```
+
+---
+
+# 5. Value Update Karna
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+
+        map.put(101, "Jimit");
+
+        System.out.println(map);
+    }
+}
+```
+
+**Output**
+
+```text
+{101=Jimit}
+```
+
+👉 Same key dobara `put()` karoge to value update ho jaati hai.
+
+---
+
+# 6. Remove Karna (`remove()`)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+
+        map.remove(101);
+
+        System.out.println(map);
+    }
+}
+```
+
+**Output**
+
+```text
+{102=Rahul}
+```
+
+---
+
+# 7. Size (`size()`)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+
+        System.out.println(map.size());
+    }
+}
+```
+
+**Output**
+
+```text
+2
+```
+
+---
+
+# 8. Loop Lagana (Important)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+        map.put(103, "Rohan");
+
+        for (Integer key : map.keySet()) {
+            System.out.println(key + " -> " + map.get(key));
+        }
+    }
+}
+```
+
+**Possible Output**
+
+```text
+101 -> Amit
+102 -> Rahul
+103 -> Rohan
+```
+
+---
+
+# 9. Clear Karna
+
+```java
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(101, "Amit");
+        map.put(102, "Rahul");
+
+        map.clear();
+
+        System.out.println(map);
+    }
+}
+```
+
+**Output**
+
+```text
+{}
+```
+
+---
+
+# HashMap ke Important Methods
+
+| Method             | Kaam                    |
+| ------------------ | ----------------------- |
+| `put(key, value)`  | Data add/update         |
+| `get(key)`         | Value lena              |
+| `containsKey(key)` | Key present hai ya nahi |
+| `remove(key)`      | Delete karna            |
+| `size()`           | Total key-value pairs   |
+| `clear()`          | Sab delete karna        |
+| `keySet()`         | Sabhi keys lena         |
+
+---
+
+
+
